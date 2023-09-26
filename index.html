@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Provence</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="smartbasket/css/smartbasket.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+    <script src="./js/config.js"></script>
+    <!-- <script src="./js/main.js"></script> -->
+    <script src="./js/menu.js"></script>
+  </head>
+  <body>
+    <!--Шапка-->
+    <header class="header">
+      <div class="container">
+        <div class="header-nav">
+          <div class="logo">
+            <img src="./img/9f0f3ef38d7e8ce9eda824740fc915d0-removebg-preview.png" style="width: 70px; object-fit: contain;"></img> <a href="./index.html">Provence</a>
+          </div>
+
+          <div data-time-btn class="work-time">09:00-23-00</div>
+
+          <!--Модальное окно, открывается при клике-->
+          <div data-modal-time class="fade-block hidden">
+            <div class="modal-window">
+              <div class="time">
+                <button data-close-time class="time-close" type="button">
+                  <img src="./img/icons8-закрыть-24.png" alt="" />
+                </button>
+                <div class="time-title">Время работы</div>
+                <div class="time-watch">Пн 09:00 − 23:00</div>
+                <div class="time-watch">Вт 09:00 − 23:00</div>
+                <div class="time-watch">Ср 09:00 − 23:00</div>
+                <div class="time-watch">Чт 09:00 − 23:00</div>
+                <div class="time-watch">Пт 09:00 − 23:00</div>
+                <div class="time-watch">Вс 09:00 − 23:00</div>
+              </div>
+            </div>
+          </div>
+
+          <div data-modal-busket-btn class="basket"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!--Навигация-->
+      <nav class="nav">
+        <ul class="nav-list" id="category_ul">
+          <li class="nav-item">
+            <a href="./info-cafe.html">
+              <div class="link-btn">О нас</div>
+            </a>
+          </li>
+           <!--<li class="nav-item">
+            <a class="nav-link" href="#breakfast">
+              <div class="link-btn">Завтрак</div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#firstmeal">
+              <div class="link-btn">Первые блюда</div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#hotdeashes"
+              ><div class="link-btn">Горячие блюда</div></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#company"
+              ><div class="link-btn">Блюда на компанию</div></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#salat"
+              ><div class="link-btn">Салаты</div></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#hotdrinks"
+              ><div class="link-btn">Горячие напитки</div></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#limonade"
+              ><div class="link-btn">Лимонады 1л</div></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#colddrinks"
+              ><div class="link-btn">Холодные напитки</div></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cofe"
+              ><div class="link-btn">Кофе</div></a
+            >
+          </li> -->
+        </ul>
+      </nav>
+    </div>
+
+    <div class="swiper-container">
+      <div class="swiper-wrapper" id="swiper-container">
+        <div class="swiper-slide">
+          <a class="link-btn" href="./info-cafe.html">О нас</a>
+        </div>
+        <!-- <div class="swiper-slide">
+          <a class="nav-link" href="#breakfast">Завтрак</a>
+        </div>
+        <div class="swiper-slide">
+          <a class="nav-link" href="#firstmeal">Первые блюда</a>
+        </div>
+        <div class="swiper-slide">
+          <a class="nav-link" href="#hotdeashes">Горячие блюда</a>
+        </div>
+        <div class="swiper-slide">
+          <a class="nav-link" href="#company">Блюда на компанию</a>
+        </div>
+        <div class="swiper-slide">
+          <a class="nav-link" href="#salat">Салаты</a>
+        </div>
+        <div class="swiper-slide">
+          <a class="nav-link" href="#hotdrinks">Горячие напитки</a>
+        </div>
+        <div class="swiper-slide">
+          <a class="nav-link" href="#limonade">Лимонады 1л</a>
+        </div>
+        <div class="swiper-slide">
+          <a class="nav-link" href="#colddrinks">Холодные напитки</a>
+        </div>
+        <div class="swiper-slide">
+          <a class="nav-link" href="#cofe">Кофе</a>
+        </div> -->
+      </div>
+    </div>
+
+    <main class="main">
+      <div class="container" id="container"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__wrapper">
+          <div class="footer-title">Контакты</div>
+          <ul class="social">
+            <li class="social__item">
+              <a href="https://api.whatsapp.com/send?phone=+7 776 459 4430"
+                ><img src="./img/icons8-whatsapp-100.png" alt="Link"
+              /></a>
+            </li>
+
+            <li class="social__item">
+              <a href=""
+                ><img src="./img/./icons8-instagram-100.png" alt="Link"
+              /></a>
+            </li>
+          </ul>
+
+          <div class="copyright">
+            <p>© 2023 Provence</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="smartbasket/css/smartbasket.min.css" />
+
+    <div class="smart-basket__wrapper"></div>
+
+    <script src="./smartbasket/js/smartbasket.min.js"></script>
+
+    <script>
+      document.addEventListener("ItemsReady", function() {
+        $(function () {
+          $(".smart-basket__wrapper").smbasket({
+            productElement: "card-modal",
+            buttonAddToBasket: "modal-btn",
+            productPrice: "product__price-number",
+            productSize: "product__size-element",
+
+            productQuantityWrapper: "product__quantity",
+            smartBasketMinArea: "basket",
+            countryCode: "+7",
+            smartBasketCurrency: "₸",
+            smartBasketMinIconPath: "./smartbasket/img/shopping-basket-wight.svg",
+
+            agreement: {
+              isRequired: true,
+              isChecked: true,
+              isLink: "https://artstranger.ru/privacy.html",
+            },
+            nameIsRequired: false,
+          });
+          setTimeout(function() {
+              var itemsReady = new Event("basketready");
+              document.dispatchEvent(itemsReady);
+          }, 1000);
+        });
+      });
+    </script>
+    <!-- <script src="./js/send_email.js"></script> -->
+  </body>
+</html>
