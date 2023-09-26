@@ -1,72 +1,72 @@
 var server_url = "https://provence-backend.onrender.com/provence"
 
-function parse2(){
-    const menuText = `
-    Американо			        700/900 тенге
-    Каппучино			        800/900 тенге
-    Латте				        800/900 тенге
-    Какао				       1200/1500 тенге
-    Горячий шоколад		       1200/1500 тенге
-    `;
-
-    // Define arrays to store names and flattened price values
-    const names = [];
-    const minPrices = [];
-    const maxPrices = [];
-
-    // Use regular expressions to extract data
-    const regex = /(.+?)\s+(\d+)\/(\d+)\s+тенге/g;
-    let match;
-
-    while ((match = regex.exec(menuText)) !== null) {
-        const name = match[1].trim();
-        const minPrice = parseInt(match[2], 10);
-        const maxPrice = parseInt(match[3], 10);
-        names.push(name);
-        minPrices.push(minPrice); // Push both minimum and maximum prices as separate values
-        maxPrices.push(maxPrice); // Push both minimum and maximum prices as separate values
-    }
-
-    // Print the results
-    console.log("Names:", names);
-    console.log("Prices:", minPrices, maxPrices);
-
-    maxminprice(names, minPrices, "")
-    maxminprice(names, maxPrices, " 2")
-
-
-}
-function maxminprice(names, prices, id){
-    for(let i = 0; i < names.length; i++){
-        var item = {
-            name: names[i]+id,
-            description: "",
-            price: prices[i],
-            category: {
-                id: 9
-            },
-            picture: "./img/lagman.jpg"
-        }
-        console.log("item:", item);
-        $.ajax({
-            type: "POST",
-            contentType: 'application/json',
-            url: server_url + '/items/add_to_category',
-            data: JSON.stringify(item),
-            cache: false,
-            success: function (result) {
-                console.log("added!")
-                // location.reload();
-            },
-            error: function(xhr, textStatus, errorThrown) {
-                console.error("AJAX Error:", textStatus, errorThrown);
-            }
-        });
-    }
-}
-// parse2()
-parse()
-function parse(){
+// function parse2(){
+//     const menuText = `
+//     Американо			        700/900 тенге
+//     Каппучино			        800/900 тенге
+//     Латте				        800/900 тенге
+//     Какао				       1200/1500 тенге
+//     Горячий шоколад		       1200/1500 тенге
+//     `;
+//
+//     // Define arrays to store names and flattened price values
+//     const names = [];
+//     const minPrices = [];
+//     const maxPrices = [];
+//
+//     // Use regular expressions to extract data
+//     const regex = /(.+?)\s+(\d+)\/(\d+)\s+тенге/g;
+//     let match;
+//
+//     while ((match = regex.exec(menuText)) !== null) {
+//         const name = match[1].trim();
+//         const minPrice = parseInt(match[2], 10);
+//         const maxPrice = parseInt(match[3], 10);
+//         names.push(name);
+//         minPrices.push(minPrice); // Push both minimum and maximum prices as separate values
+//         maxPrices.push(maxPrice); // Push both minimum and maximum prices as separate values
+//     }
+//
+//     // Print the results
+//     console.log("Names:", names);
+//     console.log("Prices:", minPrices, maxPrices);
+//
+//     maxminprice(names, minPrices, "")
+//     maxminprice(names, maxPrices, " 2")
+//
+//
+// }
+// function maxminprice(names, prices, id){
+//     for(let i = 0; i < names.length; i++){
+//         var item = {
+//             name: names[i]+id,
+//             description: "",
+//             price: prices[i],
+//             category: {
+//                 id: 9
+//             },
+//             picture: "./img/lagman.jpg"
+//         }
+//         console.log("item:", item);
+//         $.ajax({
+//             type: "POST",
+//             contentType: 'application/json',
+//             url: server_url + '/items/add_to_category',
+//             data: JSON.stringify(item),
+//             cache: false,
+//             success: function (result) {
+//                 console.log("added!")
+//                 // location.reload();
+//             },
+//             error: function(xhr, textStatus, errorThrown) {
+//                 console.error("AJAX Error:", textStatus, errorThrown);
+//             }
+//         });
+//     }
+// }
+// // parse2()
+// parse()
+// function parse(){
 //     const menuText = `
 //    Круассан с семгой    1500 тенге
 // (круассан классический, филе семги, огурцы, салатные листья, плавленный сыр)
@@ -163,129 +163,129 @@ function parse(){
 // Солянка1200 тенге
 // `;
 //     parseandsend2(2,menuText5)
-    const menuText7 = `
-Ташкентский чай       1100 тенге
-Марокканский чай       1100 тенге
-Цитрусовый чай       1100 тенге
-Малиновый чай       1100 тенге
-Зеленый чай                                 500 тенге
-Чай с молоком         500 тенге
-Черный чай         500 тенге
-Большой чайник чая       1500 тенге
-Кружка чая                                     150 тенге
-Кофе 3 в 1                                      250 тенге
-`;
-    parseandsend2(5,menuText7)
-
-    const menuText8 = `
-Цитрусовый          1600 тенге
-Киви-тархун         1600 тенге
-Манго-маракуйя         1800 тенге
-Клубника ананас         1600 тенге
-`;
-    parseandsend2(6,menuText8)
-    const menuText9 = `
-Компот                                          1000 тенге
-Компот стакан                               150 тенге
-Кола 1 л        680 тенге
-Спрайт 1 л        680 тенге
-Фанта 1 л         680 тенге
-Фьюсти 1л         680 тенге
-Сок Пико        700 тенге
-Сок Пико 250мл        350 тенге
-`;
-    parseandsend2(7,menuText9)
-}
-
-function parseandsend(parseid, menuText){
-    const names = [];
-    const descriptions = [];
-    const prices = [];
-
-// Use regular expressions to extract data
-    const regex = /(.+?)\s+(\d+)\s+тенге\s*\((.*?)\)/g;
-    let match;
-
-    while ((match = regex.exec(menuText)) !== null) {
-        names.push(match[1].trim());
-        descriptions.push(match[3].trim());
-        prices.push(parseInt(match[2].trim(), 10));
-    }
-
-// Print the results
-    console.log("Names:", names);
-    console.log("Descriptions:", descriptions);
-    console.log("Prices:", prices);
-
-    for(let i = 0; i < names.length; i++){
-        var item = {
-            name: names[i]+ " 2",
-            description: descriptions[i],
-            price: prices[i],
-            category: {
-                id: parseid
-            },
-            picture: "./img/lagman.jpg"
-        }
-        console.log("item:", item);
-        $.ajax({
-            type: "POST",
-            contentType: 'application/json',
-            url: server_url + '/items/add_to_category',
-            data: JSON.stringify(item),
-            cache: false,
-            success: function (result) {
-                console.log("added!")
-                // location.reload();
-            },
-            error: function(xhr, textStatus, errorThrown) {
-                console.error("AJAX Error:", textStatus, errorThrown);
-            }
-        });
-    }
-}
-
-function parseandsend2(parseid, menuText){
-    const names = [];
-    const prices = [];
-
-// Use regular expressions to extract data
-    const regex = /(.+?)\s+(\d+)\s+тенге/g;
-    let match;
-
-    while ((match = regex.exec(menuText)) !== null) {
-        names.push(match[1].trim());
-        prices.push(parseInt(match[2].trim(), 10));
-    }
-
-// Print the results
-    console.log("Names:", names);
-    console.log("Prices:", prices);
-
-    for(let i = 0; i < names.length; i++){
-        var item = {
-            name: names[i]+ " 2",
-            description: "",
-            price: prices[i],
-            category: {
-                id: parseid
-            },
-            picture: "./img/lagman.jpg"
-        }
-        console.log("item:", item);
-        $.ajax({
-            type: "POST",
-            contentType: 'application/json',
-            url: server_url + '/items/add_to_category',
-            data: JSON.stringify(item),
-            cache: false,
-            success: function (result) {
-                console.log("added!")
-                // location.reload();
-            },
-            error: function(xhr, textStatus, errorThrown) {
-                console.error("AJAX Error:", textStatus, errorThrown);
-            }
-        });
-    }
-}
+//     const menuText7 = `
+// Ташкентский чай       1100 тенге
+// Марокканский чай       1100 тенге
+// Цитрусовый чай       1100 тенге
+// Малиновый чай       1100 тенге
+// Зеленый чай                                 500 тенге
+// Чай с молоком         500 тенге
+// Черный чай         500 тенге
+// Большой чайник чая       1500 тенге
+// Кружка чая                                     150 тенге
+// Кофе 3 в 1                                      250 тенге
+// `;
+//     parseandsend2(5,menuText7)
+//
+//     const menuText8 = `
+// Цитрусовый          1600 тенге
+// Киви-тархун         1600 тенге
+// Манго-маракуйя         1800 тенге
+// Клубника ананас         1600 тенге
+// `;
+//     parseandsend2(6,menuText8)
+//     const menuText9 = `
+// Компот                                          1000 тенге
+// Компот стакан                               150 тенге
+// Кола 1 л        680 тенге
+// Спрайт 1 л        680 тенге
+// Фанта 1 л         680 тенге
+// Фьюсти 1л         680 тенге
+// Сок Пико        700 тенге
+// Сок Пико 250мл        350 тенге
+// `;
+//     parseandsend2(7,menuText9)
+// }
+//
+// function parseandsend(parseid, menuText){
+//     const names = [];
+//     const descriptions = [];
+//     const prices = [];
+//
+// // Use regular expressions to extract data
+//     const regex = /(.+?)\s+(\d+)\s+тенге\s*\((.*?)\)/g;
+//     let match;
+//
+//     while ((match = regex.exec(menuText)) !== null) {
+//         names.push(match[1].trim());
+//         descriptions.push(match[3].trim());
+//         prices.push(parseInt(match[2].trim(), 10));
+//     }
+//
+// // Print the results
+//     console.log("Names:", names);
+//     console.log("Descriptions:", descriptions);
+//     console.log("Prices:", prices);
+//
+//     for(let i = 0; i < names.length; i++){
+//         var item = {
+//             name: names[i]+ " 2",
+//             description: descriptions[i],
+//             price: prices[i],
+//             category: {
+//                 id: parseid
+//             },
+//             picture: "./img/lagman.jpg"
+//         }
+//         console.log("item:", item);
+//         $.ajax({
+//             type: "POST",
+//             contentType: 'application/json',
+//             url: server_url + '/items/add_to_category',
+//             data: JSON.stringify(item),
+//             cache: false,
+//             success: function (result) {
+//                 console.log("added!")
+//                 // location.reload();
+//             },
+//             error: function(xhr, textStatus, errorThrown) {
+//                 console.error("AJAX Error:", textStatus, errorThrown);
+//             }
+//         });
+//     }
+// }
+//
+// function parseandsend2(parseid, menuText){
+//     const names = [];
+//     const prices = [];
+//
+// // Use regular expressions to extract data
+//     const regex = /(.+?)\s+(\d+)\s+тенге/g;
+//     let match;
+//
+//     while ((match = regex.exec(menuText)) !== null) {
+//         names.push(match[1].trim());
+//         prices.push(parseInt(match[2].trim(), 10));
+//     }
+//
+// // Print the results
+//     console.log("Names:", names);
+//     console.log("Prices:", prices);
+//
+//     for(let i = 0; i < names.length; i++){
+//         var item = {
+//             name: names[i]+ " 2",
+//             description: "",
+//             price: prices[i],
+//             category: {
+//                 id: parseid
+//             },
+//             picture: "./img/lagman.jpg"
+//         }
+//         console.log("item:", item);
+//         $.ajax({
+//             type: "POST",
+//             contentType: 'application/json',
+//             url: server_url + '/items/add_to_category',
+//             data: JSON.stringify(item),
+//             cache: false,
+//             success: function (result) {
+//                 console.log("added!")
+//                 // location.reload();
+//             },
+//             error: function(xhr, textStatus, errorThrown) {
+//                 console.error("AJAX Error:", textStatus, errorThrown);
+//             }
+//         });
+//     }
+// }
