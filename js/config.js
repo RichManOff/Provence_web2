@@ -1,1 +1,1 @@
-var server_url = "http://localhost:8080/provence"
+var server_url = "https://provence-backend.onrender.com/provence"
