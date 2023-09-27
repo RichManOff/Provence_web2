@@ -112,6 +112,7 @@ function show_categories(categories){
     });
     $('#categories_body').append(categories_show_list); 
     $('#category').append(categories_body_list); 
+    $('#categoryFilter').append(categories_body_list); 
 }
 
 function add_item(){

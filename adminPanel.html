@@ -14,78 +14,100 @@
     <script src="./js/config.js"></script>
   </head>
   <body>
+    <div class="button-container">
+      <button id="setTable1" class="btn_test">Продукты</button>
+      <button id="setTable2" class="btn_test">Категории</button>
+      <button id="setTable3" class="btn_test">Заказы</button>
+    </div>
     <div class="container">
-      <h1>Добавить товар</h1>
-      <form action="">
-        <input placeholder="Название продукта" type="text" id="product_name" />
-        <input
-          placeholder="Описание продукта"
-          type="text"
-          id="product_suptitle"
-        />
-        <input placeholder="Цена продукта" type="number" id="product_price" />
-        <select name="product_category" id="category"></select>
-        Изображение продукта: <input type="file" name="product_image" id="product_picture"/>
-        <input type="submit" id="add_item_btn" value="Добавить товар" />
-      </form>
+      <div id="table1">
+        <h1>Добавить продукт</h1>
+        <form action="">
+          <input placeholder="Название продукта" type="text" id="product_name" />
+          <input
+            placeholder="Описание продукта"
+            type="text"
+            id="product_suptitle"
+          />
+          <input placeholder="Цена продукта" type="number" id="product_price" />
+          <select name="product_category" id="category"></select>
+          Изображение продукта: <input type="file" name="product_image" id="product_picture"/>
+          <input type="submit" id="add_item_btn" value="Добавить товар" />
+        </form>
 
-      <h1>Добавить категорию</h1>
-      <form action="">
-        <input
-          placeholder="Название категории"
-          type="text"
-          id="product_category"
-        />
-        <input type="button" value="Добавить категорию" id="add_category_btn"/>
-      </form>
-
-      <h1>Продукты</h1>
-      <div class="tovary">
-        <table class="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Название продукта</th>
-                <th>Изображение продукта</th>
-                <th>Описание продукта</th>
-                <th>Цена</th>
-                <th>Категория</th>
-                <th>Действия</th>
-              </tr>
-            </thead>
-            <tbody id="items_body"></tbody>
-        </table>
+        <h1>Продукты</h1>
+        <div class="button-container">
+          <h4 style="display: inline-block;">Выберите категорию: </h4>
+          <select name="product_category" id="categoryFilter" style="display: inline-block;">
+            <option value="all">Все</option>
+          </select>
+        </div>
+        <div class="tovary">
+          <table class="table" id="items_table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Название продукта</th>
+                  <th>Изображение продукта</th>
+                  <th>Описание продукта</th>
+                  <th>Цена</th>
+                  <th>Категория</th>
+                  <th>Действия</th>
+                </tr>
+              </thead>
+              <tbody id="items_body"></tbody>
+          </table>
+        </div>
+        
       </div>
 
-      <h1>Kатегории</h1>
-      <div class="tovary">
-        <table class="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Название категории</th>
-                <th>Действия</th>
-              </tr>
-            </thead>
-            <tbody id="categories_body"></tbody>
-        </table>
+      <div id="table2">
+        <h1>Добавить категорию</h1>
+        <form action="">
+          <input
+            placeholder="Название категории"
+            type="text"
+            id="product_category"
+          />
+          <input type="button" value="Добавить категорию" id="add_category_btn"/>
+        </form>
+
+        <h1>Kатегории</h1>
+        <div class="tovary">
+          <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Название категории</th>
+                  <th>Действия</th>
+                </tr>
+              </thead>
+              <tbody id="categories_body"></tbody>
+          </table>
+        </div>
+
       </div>
 
-      <h1>Заказы</h1>
-      <div class="tovary">
-        <table class="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Название категории</th>
-                <th>Действия</th>
-              </tr>
-            </thead>
-            <tbody id=""></tbody>
-        </table>
+      <div id="table3">
+        <h1>Заказы</h1>
+        <div class="tovary">
+          <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Название категории</th>
+                  <th>Действия</th>
+                </tr>
+              </thead>
+              <tbody id=""></tbody>
+          </table>
+        </div>
+        
       </div>
     </div>
     <script src="./js/items_list.js"></script>
+    <script src="./js/drilldown.js"></script>
+    <script src="./js/filter_items.js"></script>
   </body>
 </html>
 

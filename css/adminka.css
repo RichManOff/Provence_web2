@@ -8,8 +8,9 @@ h1 {
   text-align: center;
 }
 
-input {
+input, select {
   padding: 10px;
+  border-radius: 10px;
 }
 
 form {
@@ -29,3 +30,38 @@ form {
   text-align: center;
   font-size: 20px;
 }
+
+/* Стиль вкладок  начало*/
+#table1 {
+  display: none;
+}
+
+#table2 {
+  display: none;
+}
+
+#table3 {
+  display: none;
+}
+
+.button-container {
+  text-align: center;
+  padding: 3%;
+}
+
+.btn_test {
+  width: 200px;
+  height: 40px;
+  background-color: #032539;
+  color: white;
+  margin: 5px;
+  border-radius: 9px;
+}
+
+.btn_test.active {
+  background-color: #fa991c; /* Background color of the active tab */
+  color: #fff; /* Text color of the active tab */
+  font-weight: bold; /* Optional: make the active tab text bold */
+}
+
+/* Стиль вкладок конец*/
