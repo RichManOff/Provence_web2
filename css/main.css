@@ -146,12 +146,13 @@ body {
 nav {
   position: fixed;
   top: 78px;
+  left: 0;
   overflow: hidden;
   border-right: 1px #032539 solid;
-  width: 200px; /* Ширина навигации */
+  width: 300px; /* Ширина навигации */
   height: 100%;
   color: #000;
-  padding: 10px;
+  padding: 20px;
 }
 
 .link-btn {
@@ -592,6 +593,7 @@ nav {
   position: absolute;
   top: 18px;
   left: 360px;
+  border-radius: 25;
 }
 
 .time-watch:not(:first-child) {

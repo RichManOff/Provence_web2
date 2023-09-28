@@ -26,19 +26,6 @@ $.ajax({
     }
 })
 
-// var orders = []
-// $.ajax({
-//     url: server_url + '/orders',
-//     method: "GET",
-//     success: function(response) {
-//         orders  = response;
-//         show_orders(categories)
-//     },
-//     error: function(xhr, textStatus, errorThrown) {
-//         console.error("AJAX Error:", textStatus, errorThrown);
-//     }
-// })
-
 function show_items(items){
     var items_body_list = ``
 
@@ -173,7 +160,6 @@ function add_category(){
         });
     });
 }
-
 add_category()
 
 function delete_categories(){

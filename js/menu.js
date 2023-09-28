@@ -68,15 +68,7 @@ function dynamic_adding_categories(categories) {
     category_ready = true
 }
 
-///////////////////// addingitems
-
-
 function dynamic_adding_items(items) { 
-    // if(!category_ready){
-    //   setTimeout(function() {
-    //     dynamic_adding_items(items)
-    //   }, 600);      
-    // } else {
     items.forEach(function(element) {
         if(element.description !== ""){
             element.description = "(" + element.description + ")"
@@ -142,8 +134,6 @@ function dynamic_adding_items(items) {
             </div>
           </div>
         `
-        // var category_id = element.category.id;
-        // var element_selector = '.dishes.' + category_id;
         var element_boolean = $('.dishes.' + element.category.id);
         
         if (element_boolean.length > 0) {
@@ -246,6 +236,5 @@ function smartbasket(){
     setTimeout(function() {
         var itemsReady = new Event("ItemsReady");
         document.dispatchEvent(itemsReady);
-        // console.log(itemsReady.type);
     }, 200);
 }
