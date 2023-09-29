@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Provence | О нас</title>
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="icon" type="image/x-icon" href="./img/9f0f3ef38d7e8ce9eda824740fc915d0-removebg-preview.png">
+    <link rel="icon" type="image/x-icon" href="./img/9f0f3ef38d7e8ce9eda824740fc915d0-removebg-preview.png"/>
   </head>
   <body>
     <header class="header">
@@ -58,7 +58,7 @@
               >
             </div>
           </div>
-          <div class="basket"></div>
+          <!-- <div class="basket"></div> -->
         </div>
       </div>
     </header>
@@ -251,6 +251,7 @@
     <script src="./smartbasket/js/smartbasket.min.js"></script>
 
     <script>
+            document.addEventListener("ItemsReady", function() {
       $(function () {
         $(".smart-basket__wrapper").smbasket({
           productElement: "card-modal",
@@ -272,6 +273,7 @@
           nameIsRequired: false,
         });
       });
+    });
     </script>
   </body>
 </html>
