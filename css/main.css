@@ -636,6 +636,7 @@ nav {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 }
 .title-form {
   font-size: 50px;
@@ -790,6 +791,7 @@ form {
     background-color: #032539;
     color: #fff;
     border-radius: 30px;
+    width: fit-content;
   }
   .form-inp {
     flex-wrap: wrap;

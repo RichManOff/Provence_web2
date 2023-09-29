@@ -36,6 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     getData("POST", apiUrl, review);
+    setTimeout(() => {
+      location.reload()
+    }, 500); 
   });
 
   // Принимаем запрос с сервера и выводим его на страницу
