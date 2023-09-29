@@ -2,53 +2,75 @@ document.addEventListener("DOMContentLoaded", function () {
   const reviewForm = document.getElementById("review-form");
   const reviewsContainer = document.getElementById("reviews");
 
-  // Получаем сохраненные отзывы из локального хранилища, если они есть
-  const savedReviews = JSON.parse(localStorage.getItem("reviews")) || [];
-
-  // Отображаем сохраненные отзывы
-  savedReviews.forEach(function (savedReview) {
-    createReviewElement(savedReview.name, savedReview.comment);
-  });
-
-  reviewForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-
+  reviewForm.addEventListener("submit", function () {
     const name = document.getElementById("name").value;
     const comment = document.getElementById("comment").value;
 
-    if (name && comment) {
-      // Создаем объект с отзывом
-      const review = { name, comment };
+    //Отправляю запрос на сервер с отзывами
+    const apiUrl = "https://provence-backend.onrender.com/provence/reviews/add";
 
-      // Сохраняем отзыв в локальном хранилище
-      savedReviews.push(review);
-      localStorage.setItem("reviews", JSON.stringify(savedReviews));
+    const review = {
+      reviewersName: name,
+      review: comment,
+    };
 
-      // Отображаем отзыв
-      createReviewElement(name, comment);
+    const getData = (method, url, review) => {
+      const headers = {
+        "Content-Type": "application/json",
+      };
 
-      // Сброс формы
-      document.getElementById("name").value = "";
-      document.getElementById("comment").value = "";
-    } else {
-      alert("Заполните все поля");
-    }
+      fetch(url, {
+        method: method,
+        body: JSON.stringify(review),
+        headers: headers,
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Что то пошло не так");
+          }
+        })
+        .then((dat) => console.log(dat))
+        .catch((error) => console.log(error.message));
+    };
+
+    getData("POST", apiUrl, review);
   });
 
-  // Функция для создания элемента отзыва и его добавления на страницу
-  function createReviewElement(name, comment) {
-    const reviewElement = document.createElement("div");
-    reviewElement.classList.add("review");
+  // Принимаем запрос с сервера и выводим его на страницу
+  const fetchDataServer = () => {
+    fetch("https://provence-backend.onrender.com/provence/reviews")
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Что то пошло не так");
+        }
+      })
+      .then((data) => {
+        displayFetch(data);
+      })
+      .catch((error) => console.log(error.massage));
+  };
 
-    const nameElement = document.createElement("strong");
-    nameElement.textContent = name;
+  fetchDataServer();
 
-    const commentElement = document.createElement("p");
-    commentElement.textContent = comment;
+  const displayFetch = (data) => {
+    data.forEach((review) => {
+      const reviewElement = document.createElement("div");
+      reviewElement.classList.add("review");
 
-    reviewElement.appendChild(nameElement);
-    reviewElement.appendChild(commentElement);
+      const nameElement = document.createElement("strong");
+      nameElement.textContent = `${review.reviewersName}`;
 
-    reviewsContainer.appendChild(reviewElement);
-  }
+      const commentElement = document.createElement("p");
+      commentElement.textContent = `${review.review}`;
+
+      reviewElement.appendChild(nameElement);
+      reviewElement.appendChild(commentElement);
+
+      reviewsContainer.appendChild(reviewElement);
+    });
+  };
 });

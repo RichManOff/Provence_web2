@@ -12,7 +12,7 @@
       <div class="container">
         <div class="header-nav">
           <div class="logo">
-            <img src="./img/9f0f3ef38d7e8ce9eda824740fc915d0-removebg-preview.png" style="width: 70px; object-fit: contain;"><a href="./index.html">Provence</a>
+            <a href="./index.html">Provence</a>
           </div>
 
           <div data-time-btn class="work-time">09:00-23-00</div>
@@ -34,7 +34,30 @@
               </div>
             </div>
           </div>
-
+          <div class="nav-info">
+            <div class="nav-info-item">
+              <a href="#vakansia">Хотитите работать с нами?</a>
+            </div>
+            <div class="nav-info-item">
+              <a href="#review_a">Оставьте отзыв</a>
+            </div>
+          </div>
+          <button id="open-menu" class="btn-burger">
+            <img src="./img/icons8-меню-100.png" style="width: 30px" />
+          </button>
+          <div class="menu-btn hidden">
+            <img id="close-butt" src="./img/icons8-закрыть-50 (1).png" alt="" />
+            <div class="nav-info-item-mb">
+              <a id="link-bur" class="link-bur" href="#vakansia"
+                >Хотитите работать с нами?</a
+              >
+            </div>
+            <div class="nav-info-item-mb">
+              <a id="link-bur" class="link-bur" href="#review_a"
+                >Оставьте отзыв</a
+              >
+            </div>
+          </div>
           <div class="basket"></div>
         </div>
       </div>
@@ -124,11 +147,45 @@
           </div>
         </div>
       </div>
-
+      <section id="vakansia" class="vakansia">
+        <div class="container">
+          <div class="form-container">
+            <div class="forma">
+              <div class="title-form">Присоединяйтесь к нашей команде!</div>
+              <div class="form-suptitle">
+                Мы ищем талантливых и мотивированных людей, чтобы усилить нашу
+                команду. Если вы ищете возможность для карьерного роста, желаете
+                работать в дружном коллективе , то мы можем быть именно тем
+                местом, где вы сможете раскрыть свой потенциал.
+              </div>
+              <div class="form-inp">
+                <div class="forma">
+                  <form>
+                    <input placeholder="Имя" class="inp" type="text" />
+                    <input placeholder="Телефон" class="inp" type="text" />
+                    <input placeholder="Email" class="inp" type="tel" />
+                    <button class="form-btn">Записатся</button>
+                  </form>
+                </div>
+                <div class="buttons-call">
+                  <button type="button" class="call-btn">
+                    <a href="https://wa.me/77764594430">Написать на WhatsApp</a>
+                  </button>
+                  <button type="button" class="call-btn">
+                    <a href="https://www.instagram.com/provence_cafe_urzhar/"
+                      >Наш Instagam</a
+                    >
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- Форма для отправки отзыва -->
       <div class="otzivy">
         <div class="container">
-          <div class="title-otzv">Оставьте свой отзыв о нашем кафе</div>
+          <div class="title-otzv" id="review_a">Оставьте свой отзыв о нашем кафе</div>
           <div class="form">
             <form id="review-form" onsubmit="return false;">
               <input
@@ -168,13 +225,13 @@
             </li>
 
             <li class="social__item">
-              <a href=""
+              <a href="https://www.instagram.com/provence_cafe_urzhar/"
                 ><img src="./img/./icons8-instagram-100.png" alt="Link"
               /></a>
             </li>
           </ul>
 
-          <div class="copiright">
+          <div class="copуright">
             <p>© 2023 Provence</p>
           </div>
         </div>
