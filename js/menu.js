@@ -146,17 +146,6 @@ function dynamic_adding_items(items) {
 /////////////////////////main
 
 function main(){
-      //Слайдер
-      document.addEventListener("DOMContentLoaded", function () {
-        const swiper = new Swiper(".swiper-container", {
-          slidesPerView: "auto",
-          freeMode: true, // Включить свободный режим перемещения слайдов
-          freeModeMomentum: true, // Включить инерцию для свободного перемещения
-          freeModeMomentumVelocityRatio: 0.2, // Коэффициент скорости инерции
-          loop: true,
-          spaceBetween: 20, // Бесконечный цикл
-        });
-      });
 
         const navLinks = document.querySelectorAll(".nav-link");
   
@@ -179,6 +168,20 @@ function main(){
   }
   
   function modal(){
+          //Слайдер
+          document.addEventListener("ItemsReady", function () {
+            console.log("swiper dom")
+
+            const swiper = new Swiper(".swiper-container", {
+              slidesPerView: "auto",
+              freeMode: true, // Включить свободный режим перемещения слайдов
+              freeModeMomentum: true, // Включить инерцию для свободного перемещения
+              freeModeMomentumVelocityRatio: 0.2, // Коэффициент скорости инерции
+              loop: true,
+              spaceBetween: 20, // Бесконечный цикл
+            });
+          });
+    
     const modalButtons = document.querySelectorAll("[data-modal-button]");
     const allModals = document.querySelectorAll("[data-modal]");
     const modalCloseButtons = document.querySelectorAll("[data-modal-close]");
