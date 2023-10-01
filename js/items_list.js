@@ -108,8 +108,8 @@ function add_item(){
         var suptitle = document.getElementById("product_suptitle").value;
         var product_price = document.getElementById("product_price").value;
         var category = document.getElementById("category").value;
-        var product_picture = document.getElementById("product_picture").value;
-
+        var product_picture = "./img/menu_items/" + document.getElementById("product_picture").value;
+        
         var item = {
             name: name,
             description: suptitle,
@@ -117,7 +117,7 @@ function add_item(){
             category: {
                 id: category
             },
-            picture: "./img/menu_items/"+product_picture
+            picture: product_picture
         }
         $.ajax({
             type: "POST",

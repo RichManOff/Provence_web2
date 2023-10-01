@@ -39,5 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     dataGet("POST", urlApi, review);
+    setTimeout(() => {
+      location.reload()
+    }, 500); 
   });
 });
