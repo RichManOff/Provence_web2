@@ -23,14 +23,14 @@
       <div id="table1">
         <h1>Добавить продукт</h1>
         <form action="">
-          <input placeholder="Название продукта" type="text" id="product_name" />
+          <input placeholder="Название продукта" type="text" id="product_name" required />
           <input
             placeholder="Описание продукта"
             type="text"
             id="product_suptitle"
           />
-          <input placeholder="Цена продукта" type="number" id="product_price" />
-          <select name="product_category" id="category"></select>
+          <input placeholder="Цена продукта" type="number" id="product_price" required />
+          <select name="product_category" id="category" required ></select>
           Изображение продукта: <input type="file" name="product_image" id="product_picture"/>
           <input type="submit" id="add_item_btn" value="Добавить товар" />
         </form>
@@ -68,7 +68,7 @@
             placeholder="Название категории"
             type="text"
             id="product_category"
-          />
+            required />
           <input type="button" value="Добавить категорию" id="add_category_btn"/>
         </form>
 

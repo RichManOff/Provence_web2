@@ -11,6 +11,29 @@ $.ajax({
     }
 })
 
+function order_status(status){
+    if(status === "PENDING"){
+        status = "Заказ получен"
+    }
+    return status;
+}
+
+function date_converter(dateTimeString){
+    const dateTime = new Date(dateTimeString);
+
+    const options = {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    // second: '2-digit',
+    };
+    const formattedDateTime = dateTime.toLocaleDateString('ru-RU', options);
+    
+    return formattedDateTime;
+}
+
 function show_orders(orders){
     var orders_body_list = "";
     var modal_listHtml = "";
@@ -33,8 +56,8 @@ function show_orders(orders){
             </td>
             <td>${element.customerName}</td>
             <td>${element.customerPhone}</td>
-            <td>${element.status}</td>
-            <td>${element.orderDate}</td>
+            <td>${order_status(element.status)}</td>
+            <td>${date_converter(element.orderDate)}</td>
             <td>${order_sum}</td>
           </tr>
         `;

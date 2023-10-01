@@ -160,11 +160,31 @@
               </div>
               <div class="form-inp">
                 <div class="forma">
-                  <form>
-                    <input placeholder="Имя" class="inp" type="text" />
-                    <input placeholder="Телефон" class="inp" type="text" />
-                    <input placeholder="Email" class="inp" type="tel" />
-                    <button class="form-btn">Записатся</button>
+                  <form id="form-vak" onsubmit="return false;">
+                    <input
+                      id="user-name"
+                      placeholder="Имя"
+                      class="inp"
+                      type="text"
+                      required
+                    />
+                    <input
+                      id="user-phone"
+                      placeholder="Телефон"
+                      class="inp"
+                      type="text"
+                      required
+                    />
+                    <input
+                      id="user-resume"
+                      placeholder="Кем вы хотите работать?"
+                      class="inp"
+                      type="text"
+                      required
+                    />
+                    <button id="vakansia-btn" type="submit" class="form-btn">
+                      Записатся
+                    </button>
                   </form>
                 </div>
                 <div class="buttons-call">
@@ -243,6 +263,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="./js/request.js"></script>
 
     <link rel="stylesheet" href="smartbasket/css/smartbasket.min.css" />
 
