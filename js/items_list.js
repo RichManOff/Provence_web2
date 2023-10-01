@@ -117,7 +117,7 @@ function add_item(){
             category: {
                 id: category
             },
-            picture: product_picture
+            picture: "./img/menu_items/"+product_picture
         }
         $.ajax({
             type: "POST",
