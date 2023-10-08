@@ -26,7 +26,7 @@ $.ajax({
         }
     })
     .done(function(response) {
-        modal()      
+        modal()  
     })
     .fail(function(error) {
         console.error("AJAX Error:", error);
@@ -168,19 +168,18 @@ function main(){
   }
   
   function modal(){
-          //Слайдер
-          document.addEventListener("ItemsReady", function () {
-            console.log("swiper dom")
+    //Слайдер
+    document.addEventListener("ItemsReady", function () {
 
-            const swiper = new Swiper(".swiper-container", {
-              slidesPerView: "auto",
-              freeMode: true, // Включить свободный режим перемещения слайдов
-              freeModeMomentum: true, // Включить инерцию для свободного перемещения
-              freeModeMomentumVelocityRatio: 0.2, // Коэффициент скорости инерции
-              loop: true,
-              spaceBetween: 20, // Бесконечный цикл
-            });
-          });
+      const swiper = new Swiper(".swiper-container", {
+        slidesPerView: "auto",
+        freeMode: true, // Включить свободный режим перемещения слайдов
+        freeModeMomentum: true, // Включить инерцию для свободного перемещения
+        freeModeMomentumVelocityRatio: 0.2, // Коэффициент скорости инерции
+        loop: true,
+        spaceBetween: 20, // Бесконечный цикл
+      });
+    });
     
     const modalButtons = document.querySelectorAll("[data-modal-button]");
     const allModals = document.querySelectorAll("[data-modal]");
@@ -207,6 +206,9 @@ function main(){
       // Скрипты для модальных окон
       modalButtons.forEach(function (item) {
         item.addEventListener("click", function () {
+          const productId = this.getAttribute("data-modal-button");
+          const number = parseInt(productId.match(/\d+/)[0]);
+          stop_menu_clicks("0" + number)
           const modalId = this.dataset.modalButton;
           const modal = document.querySelector("#" + modalId);
           modal.classList.remove("hidden");
@@ -240,4 +242,50 @@ function smartbasket(){
         var itemsReady = new Event("ItemsReady");
         document.dispatchEvent(itemsReady);
     }, 200);
+}
+
+function stop_menu_clicks(id){
+
+    const api =
+      "https://provence-backend.onrender.com/provence/stop_menu/bool";
+
+    const itemId = {
+      itemId: id,
+    };
+
+    const headers = {
+      "Content-Type": "application/json",
+    };
+
+    fetch(api, {
+      method: "POST",
+      body: JSON.stringify(itemId),
+      headers: headers,
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Произошла ошибка");
+        }
+      })
+      .then((data) => {
+          disable_btn(data, id)
+      })
+      .catch((error) => console.log(error.message));
+}
+
+function disable_btn(data, id){
+    const btnMod = document.querySelectorAll("#add-to-cart");
+    btnMod.forEach(function (item) {
+        const productId = item.getAttribute("data-sb-id-or-vendor-code");
+        if(productId == id){
+          if (data) {
+              alert("Нету в наличи");
+              item.setAttribute("disabled", "disabled");
+          } else {
+              item.removeAttribute("disabled");
+          }
+        }
+    });  
 }
