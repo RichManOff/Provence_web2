@@ -109,7 +109,6 @@ body {
 }
 
 .logo a {
-  font-family: "Lobster", cursive;
   font-size: 25px;
   font-weight: 700;
   color: #fff;
@@ -636,7 +635,6 @@ nav {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
 }
 .title-form {
   font-size: 50px;
@@ -682,6 +680,48 @@ form {
 .call-btn a {
   color: #032539;
 }
+
+/* Емайл форма, код подтверждения*/
+
+.form-em {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.autoriBtn {
+  color: #fff;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 10px 10px;
+  background-color: #07c962;
+}
+
+.email-podtverd {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.kod-podverd {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.title-email {
+  margin-bottom: 25px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.kod-mod {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
 /* Footer */
 
 .footer {
@@ -791,7 +831,6 @@ form {
     background-color: #032539;
     color: #fff;
     border-radius: 30px;
-    width: fit-content;
   }
   .form-inp {
     flex-wrap: wrap;

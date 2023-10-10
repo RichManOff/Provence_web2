@@ -247,11 +247,11 @@ function smartbasket(){
 function stop_menu_clicks(id){
 
     const api =
-      "https://provence-backend.onrender.com/provence/stop_menu/bool";
+      "https://provence-backend.onrender.com/provence/items/bool?id="+id+"";
 
-    const itemId = {
-      itemId: id,
-    };
+    // const itemId = {
+    //   itemId: id,
+    // };
 
     const headers = {
       "Content-Type": "application/json",
@@ -259,7 +259,7 @@ function stop_menu_clicks(id){
 
     fetch(api, {
       method: "POST",
-      body: JSON.stringify(itemId),
+      // body: { id: id },
       headers: headers,
     })
       .then((response) => {
