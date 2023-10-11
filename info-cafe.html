@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Provence | О нас</title>
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="icon" type="image/x-icon" href="./img/9f0f3ef38d7e8ce9eda824740fc915d0-removebg-preview.png">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./img/9f0f3ef38d7e8ce9eda824740fc915d0-removebg-preview.png"
+    />
   </head>
   <body>
     <header class="header">
       <div class="container">
         <div class="header-nav">
           <div class="logo">
-            <img src="./img/9f0f3ef38d7e8ce9eda824740fc915d0-removebg-preview.png" style="width: 70px; object-fit: contain;"><a href="./index.html">Provence</a>
+            <a href="./index.html">Provence</a>
           </div>
 
-          <div data-time-btn class="work-time">09:00-23-00</div>
+          <div data-time-btn class="work-time">10:00-23:00</div>
 
           <!--Модальное окно, открывается при клике-->
           <div data-modal-time class="fade-block hidden">
@@ -35,7 +39,34 @@
             </div>
           </div>
 
-          <div class="basket"></div>
+          <div class="nav-info">
+            <div class="nav-info-item">
+              <a href="#vakansia">Хотитите работать с нами?</a>
+            </div>
+            <div class="nav-info-item">
+              <a href="#review_a">Оставьте отзыв</a>
+            </div>
+          </div>
+
+          <button id="open-menu" class="btn-burger">
+            <img src="./img/icons8-меню-100.png" style="width: 30px" />
+          </button>
+
+          <div class="menu-btn hidden">
+            <img id="close-butt" src="./img/icons8-закрыть-50 (1).png" alt="" />
+            <div class="nav-info-item-mb">
+              <a id="link-bur" class="link-bur" href="#vakansia"
+                >Хотитите работать с нами?</a
+              >
+            </div>
+            <div class="nav-info-item-mb">
+              <a id="link-bur" class="link-bur" href="#review_a"
+                >Оставьте отзыв</a
+              >
+            </div>
+          </div>
+
+          <!--<div class="basket"></div>-->
         </div>
       </div>
     </header>
@@ -125,11 +156,120 @@
         </div>
       </div>
 
+      <section id="vakansia" class="vakansia">
+        <div class="container">
+          <div class="form-container">
+            <div class="forma">
+              <div class="title-form">Присоединяйтесь к нашей команде!</div>
+
+              <div class="form-suptitle">
+                Мы ищем талантливых и мотивированных людей, чтобы усилить нашу
+                команду. Если вы ищете возможность для карьерного роста, желаете
+                работать в дружном коллективе , то мы можем быть именно тем
+                местом, где вы сможете раскрыть свой потенциал.
+              </div>
+
+              <div class="form-inp">
+                <div class="forma">
+                  <form id="form-vak" onsubmit="return false;">
+                    <input
+                      id="user-name"
+                      placeholder="Имя"
+                      class="inp"
+                      type="text"
+                      required
+                    />
+                    <input
+                      id="user-phone"
+                      placeholder="Телефон"
+                      class="inp"
+                      type="text"
+                      required
+                    />
+                    <input
+                      id="user-resume"
+                      placeholder="Кем вы хотите работать?"
+                      class="inp"
+                      type="text"
+                      required
+                    />
+                    <button id="vakansia-btn" type="submit" class="form-btn">
+                      Записатся
+                    </button>
+                  </form>
+                </div>
+
+                <div class="buttons-call">
+                  <button type="button" class="call-btn">
+                    <a href="https://wa.me/77764594430">Написать на WhatsApp</a>
+                  </button>
+                  <button type="button" class="call-btn">
+                    <a href="https://www.instagram.com/provence_cafe_urzhar/"
+                      >Наш Instagam</a
+                    >
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Форма для отправки отзыва -->
       <div class="otzivy">
         <div class="container">
-          <div class="title-otzv">Оставьте свой отзыв о нашем кафе</div>
+          <div id="review_a" class="title-otzv">
+            Оставьте свой отзыв о нашем кафе
+          </div>
           <div class="form">
+            <div class="form-em">
+              <!--Модалка для подтверждения кода-->
+              <div data-modal-podd class="fade-block hidden">
+                <div class="modal-window">
+                  <div class="kod-mod">
+                    <button
+                      data-modal-kod-close
+                      class="close-kod"
+                      type="button"
+                    >
+                      <img src="./img/icons8-закрыть-24.png" alt="" />
+                    </button>
+                    <div class="title-email">
+                      Сперва авторизуйтесь для этого
+                    </div>
+                    <form class="email-podtverd" id="email-podtverd">
+                      <input
+                        placeholder="Emal"
+                        class="review-inp"
+                        type="text"
+                        name="email-req"
+                        id="email-request"
+                      />
+                      <button id="email-btn" class="review-btn" type="submit">
+                        Отправить
+                      </button>
+                    </form>
+
+                    <div class="title-email">Подтвердите код</div>
+                    <form class="kod-podverd" id="kod-podtverd">
+                      <input
+                        placeholder="Код"
+                        class="review-inp"
+                        type="text"
+                        name=""
+                        id="kodi"
+                      />
+                      <button class="review-btn" type="submit">
+                        Подтвердить
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div id="message" class="messageKod"></div>
+            </div>
+
             <form id="review-form" onsubmit="return false;">
               <input
                 placeholder="Имя"
@@ -144,7 +284,12 @@
                 id="comment"
                 required
               />
-              <button class="review-btn" type="submit">Добавить отзыв</button>
+              <button data-review-button class="review-btn" type="submit">
+                Добавить отзыв
+              </button>
+              <button type="button" class="autoriBtn hidden">
+                С перва авторизуйтесь
+              </button>
             </form>
           </div>
 
@@ -168,7 +313,7 @@
             </li>
 
             <li class="social__item">
-              <a href=""
+              <a href="https://www.instagram.com/provence_cafe_urzhar/"
                 ><img src="./img/./icons8-instagram-100.png" alt="Link"
               /></a>
             </li>
@@ -186,6 +331,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="./js/request.js"></script>
 
     <link rel="stylesheet" href="smartbasket/css/smartbasket.min.css" />
 

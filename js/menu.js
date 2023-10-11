@@ -26,7 +26,7 @@ $.ajax({
         }
     })
     .done(function(response) {
-        modal()      
+        modal()  
     })
     .fail(function(error) {
         console.error("AJAX Error:", error);
@@ -68,15 +68,7 @@ function dynamic_adding_categories(categories) {
     category_ready = true
 }
 
-///////////////////// addingitems
-
-
 function dynamic_adding_items(items) { 
-    // if(!category_ready){
-    //   setTimeout(function() {
-    //     dynamic_adding_items(items)
-    //   }, 600);      
-    // } else {
     items.forEach(function(element) {
         if(element.description !== ""){
             element.description = "(" + element.description + ")"
@@ -142,8 +134,6 @@ function dynamic_adding_items(items) {
             </div>
           </div>
         `
-        // var category_id = element.category.id;
-        // var element_selector = '.dishes.' + category_id;
         var element_boolean = $('.dishes.' + element.category.id);
         
         if (element_boolean.length > 0) {
@@ -156,17 +146,6 @@ function dynamic_adding_items(items) {
 /////////////////////////main
 
 function main(){
-      //Слайдер
-      document.addEventListener("DOMContentLoaded", function () {
-        const swiper = new Swiper(".swiper-container", {
-          slidesPerView: "auto",
-          freeMode: true, // Включить свободный режим перемещения слайдов
-          freeModeMomentum: true, // Включить инерцию для свободного перемещения
-          freeModeMomentumVelocityRatio: 0.2, // Коэффициент скорости инерции
-          loop: true,
-          spaceBetween: 20, // Бесконечный цикл
-        });
-      });
 
         const navLinks = document.querySelectorAll(".nav-link");
   
@@ -189,6 +168,19 @@ function main(){
   }
   
   function modal(){
+    //Слайдер
+    document.addEventListener("ItemsReady", function () {
+
+      const swiper = new Swiper(".swiper-container", {
+        slidesPerView: "auto",
+        freeMode: true, // Включить свободный режим перемещения слайдов
+        freeModeMomentum: true, // Включить инерцию для свободного перемещения
+        freeModeMomentumVelocityRatio: 0.2, // Коэффициент скорости инерции
+        loop: true,
+        spaceBetween: 20, // Бесконечный цикл
+      });
+    });
+    
     const modalButtons = document.querySelectorAll("[data-modal-button]");
     const allModals = document.querySelectorAll("[data-modal]");
     const modalCloseButtons = document.querySelectorAll("[data-modal-close]");
@@ -214,6 +206,9 @@ function main(){
       // Скрипты для модальных окон
       modalButtons.forEach(function (item) {
         item.addEventListener("click", function () {
+          const productId = this.getAttribute("data-modal-button");
+          const number = parseInt(productId.match(/\d+/)[0]);
+          stop_menu_clicks("0" + number)
           const modalId = this.dataset.modalButton;
           const modal = document.querySelector("#" + modalId);
           modal.classList.remove("hidden");
@@ -246,6 +241,51 @@ function smartbasket(){
     setTimeout(function() {
         var itemsReady = new Event("ItemsReady");
         document.dispatchEvent(itemsReady);
-        // console.log(itemsReady.type);
     }, 200);
+}
+
+function stop_menu_clicks(id){
+
+    const api =
+      "https://provence-backend.onrender.com/provence/items/bool?id="+id+"";
+
+    // const itemId = {
+    //   itemId: id,
+    // };
+
+    const headers = {
+      "Content-Type": "application/json",
+    };
+
+    fetch(api, {
+      method: "POST",
+      // body: { id: id },
+      headers: headers,
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Произошла ошибка");
+        }
+      })
+      .then((data) => {
+          disable_btn(data, id)
+      })
+      .catch((error) => console.log(error.message));
+}
+
+function disable_btn(data, id){
+    const btnMod = document.querySelectorAll("#add-to-cart");
+    btnMod.forEach(function (item) {
+        const productId = item.getAttribute("data-sb-id-or-vendor-code");
+        if(productId == id){
+          if (data) {
+              alert("Нету в наличи");
+              item.setAttribute("disabled", "disabled");
+          } else {
+              item.removeAttribute("disabled");
+          }
+        }
+    });  
 }

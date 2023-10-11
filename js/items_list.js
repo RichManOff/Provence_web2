@@ -6,6 +6,8 @@ $.ajax({
         items  = response;
         show_items(items)
         delete_items()
+        to_stop_menu()
+        delete_stop_menu()
     },
     error: function(xhr, textStatus, errorThrown) {
         console.error("AJAX Error:", textStatus, errorThrown);
@@ -26,19 +28,6 @@ $.ajax({
     }
 })
 
-// var orders = []
-// $.ajax({
-//     url: server_url + '/orders',
-//     method: "GET",
-//     success: function(response) {
-//         orders  = response;
-//         show_orders(categories)
-//     },
-//     error: function(xhr, textStatus, errorThrown) {
-//         console.error("AJAX Error:", textStatus, errorThrown);
-//     }
-// })
-
 function show_items(items){
     var items_body_list = ``
 
@@ -55,8 +44,9 @@ function show_items(items){
             <td>`+element.description+`</td>
             <td>`+element.price+`</td>
             <td>`+element.category.name+`</td>
-            <td>
+            <td id="buttontd`+id+`">
               <button class="btn btn-danger delete_btn" data-id="`+id+`">Удалить</button>
+              `+check_stopmenu(element.stopMenu, id)+`
             </td>
           </tr>
         `
@@ -121,12 +111,13 @@ function add_item(){
         var suptitle = document.getElementById("product_suptitle").value;
         var product_price = document.getElementById("product_price").value;
         var category = document.getElementById("category").value;
-        var product_picture = document.getElementById("product_picture").value;
-
+        var product_picture = "./img/menu_items/" + document.getElementById("product_picture").value;
+        
         var item = {
             name: name,
             description: suptitle,
             price: product_price,
+            stopMenu: false,
             category: {
                 id: category
             },
@@ -173,7 +164,6 @@ function add_category(){
         });
     });
 }
-
 add_category()
 
 function delete_categories(){
@@ -195,6 +185,65 @@ function delete_categories(){
                 });
                 alert("Удалено!");
             }
+        }     
+    });
+
+}
+
+function check_stopmenu(bool, id){
+    var button = ''
+    if(bool){
+        button = '<button class="btn btn-danger stopmenu" data-id="'+id+'">Удалить стоп меню</button>'
+        console.log("qwqqqqqq")
+
+    } else {
+        button = '<button class="btn btn-danger menu" data-id="'+id+'">Добавить стоп меню</button>'
+    }
+    return button;
+}
+
+
+function to_stop_menu(){
+    $(".menu").on("click", function(event) {
+        var button = $(this);
+        var id = button.data('id');
+        if (confirm("Вы точно хотите удалить?")) {     
+            $.ajax({
+                type: 'POST',
+                url: server_url + '/items/to_stop_menu',
+                data: { id: id },
+                success: function(response) {
+                    console.log('Deleted successfully!');
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    console.log('Error toggling favorite:', error);
+                }
+            });
+            alert("Удалено!");
+        }     
+    });
+
+}
+
+function delete_stop_menu(){
+    $(".stopmenu").on("click", function(event) {
+        var button = $(this);
+        var id = button.data('id');
+        if (confirm("Вы точно хотите удалить?")) {     
+            $.ajax({
+                type: 'POST',
+                url: server_url + '/items/delete_stop_menu',
+                data: { id: id },
+                success: function(response) {
+                    console.log('Deleted successfully!');
+                    location.reload();
+                },
+                error: function(xhr, status, error) {
+                    console.log('Error toggling favorite:', error);
+                }
+            });
+            alert("Удалено!");
         }     
     });
 

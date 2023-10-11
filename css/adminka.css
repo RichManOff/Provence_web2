@@ -65,3 +65,76 @@ form {
 }
 
 /* Стиль вкладок конец*/
+
+/* Стиль модалка для вкладки заказы*/
+
+.fade-block {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(54, 53, 54, 0.69);
+}
+
+.modal-window {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+}
+.work-time {
+  cursor: pointer;
+  color: #fa991c;
+  transition: color 0.2s linear;
+}
+
+.work-time:hover {
+  color: #9c630d;
+}
+
+.time {
+  position: relative;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #fff;
+  text-align: center;
+  width: auto;
+  height: auto;
+  /* width: 100%; */
+}
+
+.time-title {
+  font-weight: 700;
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.time-watch {
+  font-weight: 700;
+  color: #000;
+}
+
+.time-close {
+  position: absolute;
+  top: 18px;
+  left: 360px;
+}
+
+.time-watch:not(:first-child) {
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-tables th,
+.modal-tables td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
