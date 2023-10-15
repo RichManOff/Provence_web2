@@ -10,7 +10,11 @@
     />
     <link rel="stylesheet" href="smartbasket/css/smartbasket.min.css" />
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="icon" type="image/x-icon" href="./img/9f0f3ef38d7e8ce9eda824740fc915d0-removebg-preview.png">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./img/9f0f3ef38d7e8ce9eda824740fc915d0-removebg-preview.png"
+    />
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
     <script src="./js/config.js"></script>
@@ -36,7 +40,7 @@
                   <img src="./img/icons8-закрыть-24.png" alt="" />
                 </button>
                 <div class="time-title">Время работы</div>
-                <div class="time-watch">Пн 09:00 − 23:00</div>
+                <div class="time-watch">Пн 10 :00 − 23:00</div>
                 <div class="time-watch">Вт 09:00 − 23:00</div>
                 <div class="time-watch">Ср 09:00 − 23:00</div>
                 <div class="time-watch">Чт 09:00 − 23:00</div>
@@ -109,24 +113,24 @@
     <script src="./smartbasket/js/smartbasket.min.js"></script>
 
     <script>
-        function loader(){
-            var container_9 = document.getElementById("modal-26")
-            if(container_9 === null){
-                document.querySelector("body").style.visibility = "hidden";
-                document.querySelector("body").style.backgroundImage = "none";
-                document.querySelector(".spinner").style.visibility = "visible";
-                setTimeout(function() {
-                    loader();
-                }, 1000);
-            } else {
-                document.querySelector(".spinner").style.display = "none";
-                document.querySelector("body").style.visibility = "visible";
-                document.querySelector("body").style.backgroundImage = "";             
-            }
+      function loader() {
+        var container_9 = document.getElementById("modal-26");
+        if (container_9 === null) {
+          document.querySelector("body").style.visibility = "hidden";
+          document.querySelector("body").style.backgroundImage = "none";
+          document.querySelector(".spinner").style.visibility = "visible";
+          setTimeout(function () {
+            loader();
+          }, 1000);
+        } else {
+          document.querySelector(".spinner").style.display = "none";
+          document.querySelector("body").style.visibility = "visible";
+          document.querySelector("body").style.backgroundImage = "";
         }
-        loader()
+      }
+      loader();
 
-      document.addEventListener("ItemsReady", function() {
+      document.addEventListener("ItemsReady", function () {
         $(function () {
           $(".smart-basket__wrapper").smbasket({
             productElement: "card-modal",
@@ -138,7 +142,8 @@
             smartBasketMinArea: "basket",
             countryCode: "+7",
             smartBasketCurrency: "₸",
-            smartBasketMinIconPath: "./smartbasket/img/shopping-basket-wight.svg",
+            smartBasketMinIconPath:
+              "./smartbasket/img/shopping-basket-wight.svg",
 
             agreement: {
               isRequired: true,
@@ -147,9 +152,9 @@
             },
             nameIsRequired: false,
           });
-          setTimeout(function() {
-              var itemsReady = new Event("basketready");
-              document.dispatchEvent(itemsReady);
+          setTimeout(function () {
+            var itemsReady = new Event("basketready");
+            document.dispatchEvent(itemsReady);
           }, 1000);
         });
       });
