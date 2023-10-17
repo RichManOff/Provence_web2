@@ -41,10 +41,11 @@ body {
   width: inherit;
   height: inherit;
   border-radius: inherit;
-  opacity: .05;
+  opacity: 0.05;
   border: inherit;
   border-color: transparent;
-  animation: spinner-spin 1.2s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, spinner-fade 1.2s linear infinite;
+  animation: spinner-spin 1.2s cubic-bezier(0.6, 0.2, 0, 0.8) infinite,
+    spinner-fade 1.2s linear infinite;
 }
 
 .spinner:before {
@@ -544,7 +545,7 @@ nav {
 
 .modal-price {
   position: absolute;
-  top: 361px;
+  top: 378px;
   left: 15px;
   right: 0;
   bottom: 0;
@@ -556,7 +557,7 @@ nav {
 
 .modal-suptitle {
   color: #999999;
-  margin-top: 7px;
+  margin-top: 31px;
   margin-bottom: 20px;
   font-size: 11px;
 }
@@ -565,7 +566,7 @@ nav {
   position: fixed;
   font-weight: 700;
   border-radius: 10px;
-  top: 360px;
+  top: 374px;
   right: 15px;
   padding: 10px 10px;
   background-color: #07c962;
@@ -659,11 +660,7 @@ nav {
   font-size: 20px;
   font-weight: 600;
 }
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+
 .buttons-call {
   display: flex;
   flex-direction: column;
