@@ -713,7 +713,7 @@ nav {
   margin-top: 40px;
   justify-content: center;
   display: grid;
-  grid-template-columns: repeat(3, 250px);
+  grid-template-columns: repeat(4, 250px);
   gap: 40px;
 }
 
