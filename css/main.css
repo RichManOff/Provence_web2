@@ -844,6 +844,14 @@ nav {
     grid-template-columns: repeat(3, 250px);
     gap: 40px;
   }
+
+  .carty-2-group {
+    margin-top: 50px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    gap: 40px;
+  }
 }
 
 @media (max-width: 950px) {
@@ -1019,5 +1027,9 @@ nav {
     display: grid;
     grid-template-columns: repeat(1, 250px);
     gap: 40px;
+  }
+
+  #form-vak {
+    width: 260px;
   }
 }
