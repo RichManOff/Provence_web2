@@ -454,6 +454,7 @@ nav {
 }
 
 .review {
+  word-wrap: break-word;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 5px;
