@@ -1028,8 +1028,4 @@ nav {
     grid-template-columns: repeat(1, 250px);
     gap: 40px;
   }
-
-  #form-vak {
-    width: 260px;
-  }
 }
