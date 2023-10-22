@@ -821,6 +821,36 @@ nav {
 
 /* Мобилка */
 
+@media (max-width: 2300px) {
+  .main {
+    margin-left: 500px;
+  }
+}
+
+@media (max-width: 1800px) {
+  .main {
+    margin-left: 450px;
+  }
+}
+
+@media (max-width: 1690px) {
+  .main {
+    margin-left: 400px;
+  }
+}
+
+@media (max-width: 1690px) {
+  .main {
+    margin-left: 400px;
+  }
+}
+
+@media (max-width: 1605px) {
+  .main {
+    margin-left: 350px;
+  }
+}
+
 @media (max-width: 1220px) {
   .main {
     margin-left: 250px;
