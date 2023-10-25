@@ -41,10 +41,11 @@ body {
   width: inherit;
   height: inherit;
   border-radius: inherit;
-  opacity: .05;
+  opacity: 0.05;
   border: inherit;
   border-color: transparent;
-  animation: spinner-spin 1.2s cubic-bezier(0.6, 0.2, 0, 0.8) infinite, spinner-fade 1.2s linear infinite;
+  animation: spinner-spin 1.2s cubic-bezier(0.6, 0.2, 0, 0.8) infinite,
+    spinner-fade 1.2s linear infinite;
 }
 
 .spinner:before {
@@ -279,7 +280,7 @@ nav {
 .about-us-img {
   border-radius: 20px;
   background-color: #999999;
-  width: 600px;
+  width: 500px;
 }
 
 .title-about {
@@ -453,6 +454,7 @@ nav {
 }
 
 .review {
+  word-wrap: break-word;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -493,7 +495,7 @@ nav {
 
 .card-modal {
   position: relative;
-  height: 420px;
+  height: 430px;
   width: 300px;
   border-radius: 20px;
   background-color: #032539;
@@ -544,7 +546,7 @@ nav {
 
 .modal-price {
   position: absolute;
-  top: 361px;
+  top: 378px;
   left: 15px;
   right: 0;
   bottom: 0;
@@ -556,7 +558,7 @@ nav {
 
 .modal-suptitle {
   color: #999999;
-  margin-top: 7px;
+  margin-top: 31px;
   margin-bottom: 20px;
   font-size: 11px;
 }
@@ -565,7 +567,7 @@ nav {
   position: fixed;
   font-weight: 700;
   border-radius: 10px;
-  top: 360px;
+  top: 374px;
   right: 15px;
   padding: 10px 10px;
   background-color: #07c962;
@@ -589,8 +591,8 @@ nav {
   border-radius: 20px;
   background-color: #fff;
   text-align: center;
-  width: 400px;
-  height: 300px;
+  width: 415px;
+  height: 315px;
 }
 
 .time-title {
@@ -614,25 +616,39 @@ nav {
 .time-watch:not(:first-child) {
   margin-top: 10px;
 }
+
 /* Form */
 .vakansia {
   margin-top: 150px;
   text-align: center;
 }
+
 .forma {
   padding: 70px 60px;
   background-color: #032539;
   color: #fff;
   border-radius: 30px;
 }
+
+#form-vak {
+  margin-top: 40px;
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
 .form-suptitle {
   font-size: 25px;
   font-weight: 500;
   margin-top: 30px;
 }
 .form-inp {
+  padding: 0 40px;
   align-items: center;
   margin-top: 20px;
+  gap: 30px;
   display: flex;
   justify-content: space-between;
 }
@@ -650,6 +666,7 @@ nav {
   height: 50px;
   border-radius: 20px;
 }
+
 .form-btn {
   border-radius: 30px;
   padding: 10px 14px;
@@ -659,16 +676,13 @@ nav {
   font-size: 20px;
   font-weight: 600;
 }
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+
 .buttons-call {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
+
 .call-btn {
   padding: 12px 20px;
   font-size: 24px;
@@ -679,6 +693,46 @@ form {
 }
 .call-btn a {
   color: #032539;
+}
+
+/* Карты коллектива */
+
+.carty-collective {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.carty-1-group {
+  margin-top: 50px;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  gap: 40px;
+}
+
+.carty-2-group {
+  margin-top: 40px;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  gap: 40px;
+}
+
+.title-collective {
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.img-collective {
+  width: 350px;
+  border-radius: 20px 20px 0 0;
+}
+
+.carty {
+  box-shadow: -1px 2px 11px 3px rgba(34, 60, 80, 0.2);
+  border-radius: 20px;
+  height: 500px;
 }
 
 /* Емайл форма, код подтверждения*/
@@ -767,6 +821,36 @@ form {
 
 /* Мобилка */
 
+@media (max-width: 2300px) {
+  .main {
+    margin-left: 500px;
+  }
+}
+
+@media (max-width: 1800px) {
+  .main {
+    margin-left: 450px;
+  }
+}
+
+@media (max-width: 1690px) {
+  .main {
+    margin-left: 400px;
+  }
+}
+
+@media (max-width: 1690px) {
+  .main {
+    margin-left: 400px;
+  }
+}
+
+@media (max-width: 1605px) {
+  .main {
+    margin-left: 350px;
+  }
+}
+
 @media (max-width: 1220px) {
   .main {
     margin-left: 250px;
@@ -781,6 +865,22 @@ form {
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin-top: 20px;
+  }
+
+  .carty-1-group {
+    margin-top: 50px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    gap: 40px;
+  }
+
+  .carty-2-group {
+    margin-top: 50px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    gap: 40px;
   }
 }
 
@@ -833,7 +933,9 @@ form {
     border-radius: 30px;
   }
   .form-inp {
+    padding: unset;
     flex-wrap: wrap;
+    justify-content: center;
   }
   .inp {
     width: auto;
@@ -854,6 +956,22 @@ form {
   }
   .btn-burger {
     display: block;
+  }
+
+  .carty-1-group {
+    margin-top: 50px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 250px);
+    gap: 40px;
+  }
+
+  .carty-2-group {
+    margin-top: 50px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 250px);
+    gap: 40px;
   }
 }
 
@@ -923,5 +1041,21 @@ form {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     margin-top: 20px;
+  }
+
+  .carty-1-group {
+    margin-top: 50px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(1, 250px);
+    gap: 40px;
+  }
+
+  .carty-2-group {
+    margin-top: 50px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(1, 250px);
+    gap: 40px;
   }
 }
