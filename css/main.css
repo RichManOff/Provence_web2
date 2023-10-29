@@ -280,7 +280,7 @@ nav {
 .about-us-img {
   border-radius: 20px;
   background-color: #999999;
-  width: 600px;
+  width: 500px;
 }
 
 .title-about {
@@ -454,6 +454,7 @@ nav {
 }
 
 .review {
+  word-wrap: break-word;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -590,8 +591,8 @@ nav {
   border-radius: 20px;
   background-color: #fff;
   text-align: center;
-  width: 400px;
-  height: 300px;
+  width: 415px;
+  height: 315px;
 }
 
 .time-title {
@@ -713,13 +714,13 @@ nav {
   margin-top: 40px;
   justify-content: center;
   display: grid;
-  grid-template-columns: repeat(3, 250px);
+  grid-template-columns: repeat(4, 250px);
   gap: 40px;
 }
 
 .title-collective {
   padding: 20px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -820,6 +821,36 @@ nav {
 
 /* Мобилка */
 
+@media (max-width: 2300px) {
+  .main {
+    margin-left: 500px;
+  }
+}
+
+@media (max-width: 1800px) {
+  .main {
+    margin-left: 450px;
+  }
+}
+
+@media (max-width: 1690px) {
+  .main {
+    margin-left: 400px;
+  }
+}
+
+@media (max-width: 1690px) {
+  .main {
+    margin-left: 400px;
+  }
+}
+
+@media (max-width: 1605px) {
+  .main {
+    margin-left: 350px;
+  }
+}
+
 @media (max-width: 1220px) {
   .main {
     margin-left: 250px;
@@ -837,6 +868,14 @@ nav {
   }
 
   .carty-1-group {
+    margin-top: 50px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    gap: 40px;
+  }
+
+  .carty-2-group {
     margin-top: 50px;
     justify-content: center;
     display: grid;
