@@ -75,12 +75,10 @@ function dynamic_adding_items(items) {
         } else {
             element.description = ""
         }
-        
-        var picture_url = server_url + "/items/image?imageName=" + element.picture        
         var id = element.id
         var card_html = `
         <div data-modal-button="modal-`+id+`" class="card-dishes">
-            <img src="`+picture_url+`" alt="" class="card-img" />
+            <img src="`+element.picture+`" alt="" class="card-img" />
 
             <div class="card-text">
               <div class="card-title">`+element.name+`</div>
@@ -96,7 +94,7 @@ function dynamic_adding_items(items) {
         <div id="modal-`+id+`" data-modal="" class="fade-block hidden">
             <div class="modal-window">
               <div class="card-modal">
-                <img src="`+picture_url+`" alt="" class="card-img-modal" />
+                <img src="`+element.picture+`" alt="" class="card-img-modal" />
 
                 <button data-modal-close type="button">
                   <img
@@ -124,7 +122,7 @@ function dynamic_adding_items(items) {
                     data-sb-product-name="`+element.name+`"
                     data-sb-product-price="`+element.price+`"
                     data-sb-product-quantity="1"
-                    data-sb-product-img="`+picture_url+`"
+                    data-sb-product-img="`+element.picture+`"
                     type="button"
                     id="add-to-cart"
                     class="modal-btn"
