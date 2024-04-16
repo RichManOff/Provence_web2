@@ -35,12 +35,14 @@ function show_items(items){
         if(element.description === "null"){
             element.description = ""
         }
+
+        var picture_url = server_url + "/items/image?imageName=" + element.picture        
         var id = BigInt(element.id)
         var items_body = `
           <tr>
             <td>`+element.id+`</td>
             <td>`+element.name+`</td>
-            <td><img src="`+element.picture+`" alt="" style="width: 100px; object-fit: contain;"/></td>
+            <td><img src="`+picture_url+`" alt="" style="width: 100px; object-fit: contain;"/></td>
             <td>`+element.description+`</td>
             <td>`+element.price+`</td>
             <td>`+element.category.name+`</td>
